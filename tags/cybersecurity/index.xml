@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cybersecurity on </title>
+    <link>/tags/cybersecurity/</link>
+    <description>Recent content in Cybersecurity on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Return Oriented Programming</title>
+      <link>/posts/return-oriented-programming/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/return-oriented-programming/</guid>
+      <description>&lt;h1 id=&#34;return-oriented-programming-rop--a-beginners-journey&#34;&gt;Return-Oriented Programming (ROP) – A Beginner&amp;rsquo;s Journey&lt;/h1&gt;&#xA;&lt;p&gt;So recently, I finally took the dive into &lt;strong&gt;Return-Oriented Programming (ROP)&lt;/strong&gt; and wanted to document my experience. Not just for anyone else learning, but also for future me when I inevitably forget how I did this in a week.&lt;/p&gt;&#xA;&lt;p&gt;This post is based on a simple binary exploitation flow, and I followed along with the &lt;a href=&#34;https://www.youtube.com/watch?v=kvfnLvSbnhc&#34; target=&#34;_blank&#34;&gt;John Hammond Misfortune CTF ROP video&lt;/a&gt;. Highly recommend checking that out if you&amp;rsquo;re just getting into this.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Welcome to My Cybersecurity Blog</title>
+      <link>/posts/introduction/</link>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/introduction/</guid>
+      <description>&lt;h2 id=&#34;-hello-and-welcome&#34;&gt;👋 Hello and Welcome!&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m &lt;strong&gt;Talen Neil Serrao&lt;/strong&gt;, a graduate in Cybersecurity and Ethical Hacking from Coventry University 🇬🇧 — awarded &lt;strong&gt;First Class Honours&lt;/strong&gt;. This blog is where I share my journey, experiments, and insights in the world of cybersecurity.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;-what-youll-find-here&#34;&gt;🧠 What You’ll Find Here&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔍 Writeups of penetration testing labs and challenges (e.g. TryHackMe, HackTheBox)&lt;/li&gt;&#xA;&lt;li&gt;🛠️ Projects I’ve built — from reverse engineering tools to AI-enhanced detection systems&lt;/li&gt;&#xA;&lt;li&gt;🧬 Deep dives into buffer overflows, ROP chains, DoS attacks, and secure protocols&lt;/li&gt;&#xA;&lt;li&gt;🔐 Insights on cryptography, exploit development, and ethical hacking techniques&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;-tech-i-use&#34;&gt;🧰 Tech I Use&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Languages: Python, Bash, C, C++, JavaScript&lt;/li&gt;&#xA;&lt;li&gt;Tools: Ghidra, Metasploit, Cutter, Wireshark, Burp Suite, Scapy, Pwntools&lt;/li&gt;&#xA;&lt;li&gt;AI/ML: Neural networks with PyTorch for attack classification&lt;/li&gt;&#xA;&lt;li&gt;Protocols: TCP/IP, DNS, HTTPS, Wi-Fi, and encrypted comms using AES-GCM&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;-why-i-built-this-site&#34;&gt;🚀 Why I Built This Site&lt;/h3&gt;&#xA;&lt;p&gt;To document and reflect on my learning, give back to the community, and stay sharp by sharing knowledge publicly. Cybersecurity is a fast-evolving field, and I believe in learning by doing — and teaching.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

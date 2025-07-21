@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reverse Engineering on </title>
+    <link>/tags/reverse-engineering/</link>
+    <description>Recent content in Reverse Engineering on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Return Oriented Programming</title>
+      <link>/posts/return-oriented-programming/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/return-oriented-programming/</guid>
+      <description>&lt;h1 id=&#34;return-oriented-programming-rop--a-beginners-journey&#34;&gt;Return-Oriented Programming (ROP) – A Beginner&amp;rsquo;s Journey&lt;/h1&gt;&#xA;&lt;p&gt;So recently, I finally took the dive into &lt;strong&gt;Return-Oriented Programming (ROP)&lt;/strong&gt; and wanted to document my experience. Not just for anyone else learning, but also for future me when I inevitably forget how I did this in a week.&lt;/p&gt;&#xA;&lt;p&gt;This post is based on a simple binary exploitation flow, and I followed along with the &lt;a href=&#34;https://www.youtube.com/watch?v=kvfnLvSbnhc&#34; target=&#34;_blank&#34;&gt;John Hammond Misfortune CTF ROP video&lt;/a&gt;. Highly recommend checking that out if you&amp;rsquo;re just getting into this.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

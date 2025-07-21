@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on </title>
+    <link>/about/</link>
+    <description>Recent content in About on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>/about/about/</link>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>/about/about/</guid>
+      <description>&lt;h2 id=&#34;-hey-im-talen-serrao&#34;&gt;👋 Hey, I&amp;rsquo;m Talen Serrao&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m a &lt;strong&gt;Cybersecurity and Ethical Hacking graduate&lt;/strong&gt; from Coventry University 🇬🇧 (First Class Honours), passionate about breaking and securing systems. Whether it’s exploiting a buffer overflow or building a secure communication protocol, I love exploring how things work — and how to make them safer.&lt;/p&gt;&#xA;&lt;h3 id=&#34;-what-i-do&#34;&gt;🧠 What I Do&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔍 Penetration Testing &amp;amp; Reverse Engineering&lt;/li&gt;&#xA;&lt;li&gt;🛡️ Network Security (ARP spoofing, DNS spoofing, Wi-Fi DoS attack mitigation)&lt;/li&gt;&#xA;&lt;li&gt;🧰 Tools: Metasploit, Wireshark, Burp Suite, Ghidra, Cutter, Scapy&lt;/li&gt;&#xA;&lt;li&gt;🧠 AI Integration in Security: Neural Networks with PyTorch for attack detection&lt;/li&gt;&#xA;&lt;li&gt;🔧 Secure software development using Python, Bash, C/C++, and JavaScript&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;-projects&#34;&gt;📁 Projects&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Wi-Fi DoS Mitigation Tool&lt;/strong&gt; – Dissertation project using Scapy + AI detection with PyTorch&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Realtek Driver Updater&lt;/strong&gt; – Secure GUI-based tool for scanning and updating drivers&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ROP &amp;amp; Buffer Overflow Exploits&lt;/strong&gt; – Hands-on exploit development with GDB and pwntools&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Secure Contract Exchange Protocol&lt;/strong&gt; – AES-GCM-based symmetric cryptographic system&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;-online-presence&#34;&gt;🌐 Online Presence&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;💼 &lt;a href=&#34;https://linkedin.com/in/talen-serrao-9752a6255&#34; target=&#34;_blank&#34;&gt;LinkedIn&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;🛠️ &lt;a href=&#34;https://github.com/Tempest2488&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt; – Explore my projects&lt;/li&gt;&#xA;&lt;li&gt;📫 Email: &lt;a href=&#34;mailto:talenneil@hotmail.com&#34;&gt;talenneil@hotmail.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;Security isn’t just a field — it’s a mindset.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
