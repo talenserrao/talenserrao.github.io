@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on </title>
+    <link>/tags/python/</link>
+    <description>Recent content in Python on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automation Driver Update</title>
+      <link>/posts/realtek-updater/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>/posts/realtek-updater/</guid>
+      <description>&lt;h2 id=&#34;building-a-simple-git--make-installer-gui-in-python&#34;&gt;Building a Simple Git + Make Installer GUI in Python&lt;/h2&gt;&#xA;&lt;p&gt;So I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing the thing with &lt;code&gt;sudo make install&lt;/code&gt; every single time I needed to update a driver or rebuild some source code. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;&#xA;&lt;p&gt;This is where my little project comes in: &lt;strong&gt;Git Make Installer&lt;/strong&gt; — a simple Python-based GUI tool that does just that.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
