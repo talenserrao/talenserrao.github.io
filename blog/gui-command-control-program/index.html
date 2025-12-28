@@ -75,7 +75,7 @@
   
 
 
-<title>GUI-Based Command &amp; Control Program</title>
+<title>GUI Command and Control</title>
 
 
 
@@ -175,13 +175,13 @@
 
 
 
-<meta property="og:title" content="GUI-Based Command &amp; Control Program" />
+<meta property="og:title" content="GUI Command and Control" />
 <meta property="og:description" content="Hugo &amp; Tailwindcss Starter" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://talenserrao.github.io/blog/gui-command-control-program/" />
 
 
-<meta name="twitter:title" content="GUI-Based Command &amp; Control Program" />
+<meta name="twitter:title" content="GUI Command and Control" />
 <meta name="twitter:description" content="Hugo &amp; Tailwindcss Starter" />
 
 
@@ -685,7 +685,7 @@
           
           
           <h1 class="h2 mb-4">
-            GUI-Based Command &amp; Control Program
+            GUI Command and Control
           </h1>
           <ul class="mb-4">
             <li class="mr-4 inline-block">
@@ -716,56 +716,302 @@
   </summary>
   <nav id="TableOfContents">
   <ol>
-    <li>
-      <ol>
-        <li><a href="#requirements">Requirements</a></li>
-        <li><a href="#usage-of-the-program">Usage of the program</a></li>
-        <li><a href="#notes">Notes</a></li>
-      </ol>
-    </li>
+    <li><a href="#gui-command-and-control-client--controller">GUI Command and Control (Client + Controller)</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#client-command-receiver">Client: Command Receiver</a></li>
+    <li><a href="#controller-gui-sender">Controller: GUI Sender</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#running-it">Running It</a></li>
+    <li><a href="#notes-and-next-steps">Notes and Next Steps</a></li>
   </ol>
 </nav>
 </details>
 
-            <h1 id="gui-based-command--control-program">GUI-Based Command &amp; Control Program</h1>
-<p>It a program that allows you to send commands to connected clients and display their responses. This program is built with Python 3 and uses the Tkinter library for the graphical user interface (GUI).</p>
-<p>GitHub: <a href="https://github.com/Tempest2488/GUI-Based-Command-and-Control-Program"
-
-
-
-
- target="_blank"
- 
-
-
->https://github.com/Tempest2488/GUI-Based-Command-and-Control-Program</a></p>
-<h3 id="requirements">Requirements</h3>
+            <h2 id="gui-command-and-control-client--controller">GUI Command and Control (Client + Controller)</h2>
+<p>I wanted a simple way to send system commands from a GUI and get the output back in real time. The result is a small Python command-and-control demo built on sockets with a <code>tkinter</code> controller. It is intentionally minimal: one GUI, a client that listens for commands, and a few safe system info queries.</p>
+<p>This post breaks down the flow, the code, and how it works.</p>
+<hr>
+<h2 id="how-it-works">How It Works</h2>
+<p>The project has two parts:</p>
 <ul>
-<li>Python 3.10.9</li>
-<li>tkinter.TkVersion</li>
+<li><strong>client.py</strong>: connects to the server, waits for a command string, runs it, and returns output.</li>
+<li><strong>controller.py</strong>: provides a GUI to select commands, send them to one or more clients, and display responses.</li>
 </ul>
-<h3 id="usage-of-the-program">Usage of the program</h3>
+<p>Commands are simple string identifiers like <code>get_users()</code> or <code>get_mem_info()</code>. The client maps those to local commands and sends the output back over the socket.</p>
+<hr>
+<h2 id="client-command-receiver">Client: Command Receiver</h2>
+<p>The client opens a socket connection and waits for a command. When it receives a known command, it runs a local command with <code>subprocess</code> and sends the output back to the server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> socket
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> subprocess
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">client</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    it creates a ocket client that can receive commands from a server and send back system information
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>        host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;localhost&#39;</span>
+</span></span><span style="display:flex;"><span>        port <span style="color:#f92672">=</span> <span style="color:#ae81ff">9999</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        sock <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket()
+</span></span><span style="display:flex;"><span>        sock<span style="color:#f92672">.</span>connect((host, port))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Receive data from the client</span>
+</span></span><span style="display:flex;"><span>            received <span style="color:#f92672">=</span> sock<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">1024</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> received:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;The data has been received: &#34;</span> <span style="color:#f92672">+</span> received)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> received <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;get_users()&#34;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Run the `cat /etc/passwd` command and send the output to the client</span>
+</span></span><span style="display:flex;"><span>                output <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output([<span style="color:#e6db74">&#34;cat&#34;</span>, <span style="color:#e6db74">&#34;/etc/passwd&#34;</span>])<span style="color:#f92672">.</span>decode()<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>                sock<span style="color:#f92672">.</span>send(output<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> received <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;get_id()&#39;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Run the `id` command and send the output to the client</span>
+</span></span><span style="display:flex;"><span>                output <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output([<span style="color:#e6db74">&#34;id&#34;</span>])<span style="color:#f92672">.</span>decode()<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>                sock<span style="color:#f92672">.</span>send(output<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> received <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;get_device_info()&#34;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Show the device information in /proc/devices and send the output to the client</span>
+</span></span><span style="display:flex;"><span>                output <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output([<span style="color:#e6db74">&#34;cat&#34;</span>, <span style="color:#e6db74">&#34;/proc/devices&#34;</span>])<span style="color:#f92672">.</span>decode()<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>                sock<span style="color:#f92672">.</span>send(output<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> received <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;get_mem_info()&#34;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># Show the information in /proc/meminfo and send the output to the client</span>
+</span></span><span style="display:flex;"><span>                output <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>check_output([<span style="color:#e6db74">&#34;cat&#34;</span>, <span style="color:#e6db74">&#34;/proc/meminfo&#34;</span>])<span style="color:#f92672">.</span>decode()<span style="color:#f92672">.</span>strip()
+</span></span><span style="display:flex;"><span>                sock<span style="color:#f92672">.</span>send(output<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                sock<span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;Invalid command.&#34;</span><span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        sock<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ConnectionResetError</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Goodbye!&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ConnectionRefusedError</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Connection has been refused!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__<span style="color:#f92672">==</span><span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    client()
+</span></span></code></pre></div><p>The command map is deliberately tight: it only exposes a handful of read-only system calls. That keeps the demo safe and predictable.</p>
+<hr>
+<h2 id="controller-gui-sender">Controller: GUI Sender</h2>
+<p>The controller is a <code>tkinter</code> GUI with:</p>
 <ul>
-<li>run the controller.py</li>
+<li>a command dropdown,</li>
+<li>an IP:PORT entry,</li>
+<li>a list of connected clients,</li>
+<li>a send button and output area.</li>
 </ul>
-<p><img src="https://github.com/user-attachments/assets/dbac44e9-e81f-4fcf-8541-6f2d12ae64c9" alt="d99dd5c8-0dd8-4796-a782-ddd5f5aa417e"></p>
+<p>It listens for connections, keeps a list of sockets, and can send commands to either a selected client or all clients.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> socket
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> tkinter <span style="color:#66d9ef">as</span> tk
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Controller</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;A class to manage the GUI and handle client connections.Python GUI - tkinter - GeeksforGeeks. (2017, June 17). GeeksforGeeks. https://www.geeksforgeeks.org/python-gui-tkinter/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">‌&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, master):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Initialize the Controller object with the GUI elements and connection data.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>host <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>port <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>address <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>socket <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>quit_flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>  <span style="color:#75715e"># flag to indicate when to quit the loop</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create the GUI elements</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>master <span style="color:#f92672">=</span> master
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>master<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Controller&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>master<span style="color:#f92672">.</span>configure(bg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#EEE&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a label for the command selection</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>command_label <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Label(self<span style="color:#f92672">.</span>master, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Select a command:&#34;</span>, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">14</span>), bg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#EEE&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>command_label<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, sticky<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a dropdown menu to select the command</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>command_var <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>StringVar(self<span style="color:#f92672">.</span>master)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>command_var<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;Select a command...&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>command_menu <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>OptionMenu(self<span style="color:#f92672">.</span>master, self<span style="color:#f92672">.</span>command_var, <span style="color:#e6db74">&#34;get_users()&#34;</span>, <span style="color:#e6db74">&#34;get_device_info()&#34;</span>, <span style="color:#e6db74">&#34;get_mem_info()&#34;</span>, <span style="color:#e6db74">&#34;get_id()&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>command_menu<span style="color:#f92672">.</span>config(width<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span>, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">12</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>command_menu<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a label and an entry field for additional command parameters</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>ip_port_label <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Label(self<span style="color:#f92672">.</span>master, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IP:PORT&#34;</span>, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">14</span>), bg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#EEE&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>ip_port_label<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, sticky<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>ip_port_entry <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Entry(self<span style="color:#f92672">.</span>master, width<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">12</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>ip_port_entry<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>ip_port_entry<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">&#39;localhost:9999&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a button to send the command</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>button <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Button(self<span style="color:#f92672">.</span>master, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Send&#34;</span>, command<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>controller, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">14</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>button<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a label for the output text widget</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>output_label <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Label(self<span style="color:#f92672">.</span>master, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Output:&#34;</span>, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">14</span>), bg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#EEE&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>output_label<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, sticky<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create an output text widget with scrollbar</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>output <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Text(self<span style="color:#f92672">.</span>master, height<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, width<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">12</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, columnspan<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>client_box <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Listbox(self<span style="color:#f92672">.</span>master, height<span style="color:#f92672">=</span><span style="color:#ae81ff">9</span>, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">12</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>client_box<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a button to clear the output text widget</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>clear_button <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Button(self<span style="color:#f92672">.</span>master, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Clear&#34;</span>, command<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>clear_output, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">14</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>clear_button<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, sticky<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a button to connect to a new client</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>connect_button <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Button(self<span style="color:#f92672">.</span>master, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Start Server&#34;</span>, command<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>start_bind, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">14</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>connect_button<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, sticky<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create a button to send the command to all clients</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>send_all_button <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Button(self<span style="color:#f92672">.</span>master, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Send All&#34;</span>, command<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>send_all, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#34;Arial&#34;</span>, <span style="color:#ae81ff">14</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>send_all_button<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, padx<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, pady<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send_all</span>(self):
+</span></span><span style="display:flex;"><span>       <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Send the selected command to all clients and display the responses in the output widget.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e"># Get the selected command and additional parameters from the GUI</span>
+</span></span><span style="display:flex;"><span>       command <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>command_var<span style="color:#f92672">.</span>get()    
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e"># Validate the command and parameters</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">if</span> command <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Select a command...&#34;</span>:
+</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">&#34;Please select a command.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#66d9ef">return</span>    
+</span></span><span style="display:flex;"><span>       responses <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">for</span> socket, address <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>list:
+</span></span><span style="display:flex;"><span>           <span style="color:#75715e"># Send the command and parameters to each connected client</span>
+</span></span><span style="display:flex;"><span>           socket<span style="color:#f92672">.</span>send(command<span style="color:#f92672">.</span>encode())    
+</span></span><span style="display:flex;"><span>           <span style="color:#75715e"># Receive a response from the client and append it to the responses list</span>
+</span></span><span style="display:flex;"><span>           response <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4048</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>           responses<span style="color:#f92672">.</span>append(response)    
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e"># Display the responses in the output widget</span>
+</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(responses) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">start_bind</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Bind the server to the specified IP and port and start listening for clients.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>ip_port <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>ip_port_entry<span style="color:#f92672">.</span>get()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>host <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>ip_port<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>port <span style="color:#f92672">=</span> int(self<span style="color:#f92672">.</span>ip_port<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;:&#34;</span>)[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>socket <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>socket<span style="color:#f92672">.</span>bind((self<span style="color:#f92672">.</span>host, self<span style="color:#f92672">.</span>port))
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Server has binded.&#34;</span>)
+</span></span><span style="display:flex;"><span>        Thread(target<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>start_listening)<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">start_listening</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Listen for incoming client connections and start a new thread to handle each connection.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Server is listening...&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>socket<span style="color:#f92672">.</span>listen(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Listening on </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74"> on </span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>new_socket, self<span style="color:#f92672">.</span>address <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>socket<span style="color:#f92672">.</span>accept()
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>list<span style="color:#f92672">.</span>append((self<span style="color:#f92672">.</span>new_socket, self<span style="color:#f92672">.</span>address))
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;accepted client&#34;</span>)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>client_box<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>address[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>address[<span style="color:#ae81ff">1</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            thread <span style="color:#f92672">=</span> Thread(target<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>controller)
+</span></span><span style="display:flex;"><span>            thread<span style="color:#f92672">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">controller</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Handle the selected command by sending it to the selected client or all clients, and display the responses
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        in the output widget
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Get the selected command and additional parameters from the GUI</span>
+</span></span><span style="display:flex;"><span>        command <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>command_var<span style="color:#f92672">.</span>get()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Validate the command and parameters</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> command <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;Select a command...&#34;</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">&#34;Please select a command.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        client_select <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>client_box<span style="color:#f92672">.</span>curselection()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> client_select <span style="color:#f92672">==</span> ():
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Send the command to all clients</span>
+</span></span><span style="display:flex;"><span>            responses <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> socket, address <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>list:
+</span></span><span style="display:flex;"><span>                socket<span style="color:#f92672">.</span>send(command<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>                response <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4048</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>                responses<span style="color:#f92672">.</span>append(response)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(responses) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Send the command to the selected client</span>
+</span></span><span style="display:flex;"><span>            client_select <span style="color:#f92672">=</span> client_select[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            socket <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>list[client_select][<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>            socket<span style="color:#f92672">.</span>send(command<span style="color:#f92672">.</span>encode())
+</span></span><span style="display:flex;"><span>            response <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">4048</span>)<span style="color:#f92672">.</span>decode()
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, response <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Display the responses in the output widget</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>insert(tk<span style="color:#f92672">.</span>END, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(responses) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clear_output</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Clear the output and socket connection
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>output<span style="color:#f92672">.</span>delete(<span style="color:#e6db74">&#39;1.0&#39;</span>, tk<span style="color:#f92672">.</span>END)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>socket<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Initialize the GUI window and start the event loop.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>     
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Create the GUI window</span>
+</span></span><span style="display:flex;"><span>    root <span style="color:#f92672">=</span> tk<span style="color:#f92672">.</span>Tk()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Create an instance of the Controller class</span>
+</span></span><span style="display:flex;"><span>    controller <span style="color:#f92672">=</span> Controller(root)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Start the GUI event loop</span>
+</span></span><span style="display:flex;"><span>    root<span style="color:#f92672">.</span>mainloop()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><hr>
+<h2 id="requirements">Requirements</h2>
+<pre tabindex="0"><code>Python 3.10.9
+tkinter.TkVersion
+8.6
+</code></pre><hr>
+<h2 id="running-it">Running It</h2>
+<p>Start the GUI first:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 controller.py
+</span></span></code></pre></div><p><img src="https://github.com/user-attachments/assets/dbac44e9-e81f-4fcf-8541-6f2d12ae64c9" alt="controller-main"></p>
+<p>Then start the client in another terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 client.py
+</span></span></code></pre></div><p>Once the client connects, enter the IP and port (default is local) and click <strong>Start Server</strong>.</p>
+<p><img src="https://github.com/user-attachments/assets/ce6d0570-182e-49f8-a154-19b738bdfdad" alt="start-server"></p>
+<p>Select a command from the dropdown.</p>
+<p><img src="https://github.com/user-attachments/assets/5bddcc2d-a3c4-4eb0-a0e9-78da8b67dab4" alt="command-dropdown"></p>
+<p>Click <strong>Send</strong> for a selected client, or <strong>Send All</strong> for every connected client.</p>
+<p><img src="https://github.com/user-attachments/assets/ce8ea966-d0bc-4e9b-9bf2-a5d0f08053eb" alt="send-command"></p>
+<hr>
+<h2 id="notes-and-next-steps">Notes and Next Steps</h2>
+<p>This demo is intentionally limited to read-only commands. If you want to expand it, consider:</p>
 <ul>
-<li>first start type the ip and port of the client(by default it is local address) and then start the server</li>
+<li>a command allowlist on the controller,</li>
+<li>authentication for clients,</li>
+<li>encrypted sockets for remote usage.</li>
 </ul>
-<p><img src="https://github.com/user-attachments/assets/ce6d0570-182e-49f8-a154-19b738bdfdad" alt="a48deab4-226c-494a-bdb6-e9111b0e969c"></p>
-<ul>
-<li>then there is the deop down list for the list of commands you can give to the client. Select the commands you want to give the clients</li>
-</ul>
-<p><img src="https://github.com/user-attachments/assets/5bddcc2d-a3c4-4eb0-a0e9-78da8b67dab4" alt="0d376c5e-86d5-49b1-b9e6-3bca71d073b3"></p>
-<ul>
-<li>When you done selecting the command then click the send buttion to send to the selected client or click send all to send command to all connected client</li>
-</ul>
-<p><img src="https://github.com/user-attachments/assets/ce8ea966-d0bc-4e9b-9bf2-a5d0f08053eb" alt="32e81fc9-daaa-4c09-bbee-c1a936fc12ea"></p>
-<ul>
-<li>you can even use the clear button to clear the screen</li>
-</ul>
-<h3 id="notes">Notes</h3>
-<p>This program needs to be closed manually in the terminal</p>
+<p>It is a clean foundation for learning about GUI control panels and socket-based command routing without overcomplicating the design.</p>
 
           </div>
           <div class="row items-start justify-between">
@@ -778,16 +1024,24 @@
                     <li class="inline-block">
                       <a
                         class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/python/">
-                        Python
+                        href="/tags/automation/">
+                        Automation
                       </a>
                     </li>
                   
                     <li class="inline-block">
                       <a
                         class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/tkinter/">
-                        Tkinter
+                        href="/tags/programming/">
+                        Programming
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/python/">
+                        Python
                       </a>
                     </li>
                   
@@ -802,16 +1056,16 @@
                     <li class="inline-block">
                       <a
                         class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/networking/">
-                        Networking
+                        href="/tags/sockets/">
+                        Sockets
                       </a>
                     </li>
                   
                     <li class="inline-block">
                       <a
                         class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
-                        href="/tags/sockets/">
-                        Sockets
+                        href="/tags/tkinter/">
+                        Tkinter
                       </a>
                     </li>
                   

@@ -6,8 +6,15 @@
     <description>Recent content in Automation on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Jul 2025 00:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jul 2025 00:00:00 +0100</lastBuildDate>
     <atom:link href="https://talenserrao.github.io/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GUI Command and Control</title>
+      <link>https://talenserrao.github.io/blog/gui-command-control-program/</link>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>https://talenserrao.github.io/blog/gui-command-control-program/</guid>
+      <description>&lt;h2 id=&#34;gui-command-and-control-client--controller&#34;&gt;GUI Command and Control (Client + Controller)&lt;/h2&gt;&#xA;&lt;p&gt;I wanted a simple way to send system commands from a GUI and get the output back in real time. The result is a small Python command-and-control demo built on sockets with a &lt;code&gt;tkinter&lt;/code&gt; controller. It is intentionally minimal: one GUI, a client that listens for commands, and a few safe system info queries.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Realtek Driver Updater</title>
       <link>https://talenserrao.github.io/blog/realtek-updater/</link>

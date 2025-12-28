@@ -9,11 +9,11 @@
     <lastBuildDate>Mon, 28 Jul 2025 00:00:00 +0100</lastBuildDate>
     <atom:link href="https://talenserrao.github.io/tags/sockets/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>GUI-Based Command &amp; Control Program</title>
+      <title>GUI Command and Control</title>
       <link>https://talenserrao.github.io/blog/gui-command-control-program/</link>
       <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
       <guid>https://talenserrao.github.io/blog/gui-command-control-program/</guid>
-      <description>&lt;h1 id=&#34;gui-based-command--control-program&#34;&gt;GUI-Based Command &amp;amp; Control Program&lt;/h1&gt;&#xA;&lt;p&gt;It a program that allows you to send commands to connected clients and display their responses. This program is built with Python 3 and uses the Tkinter library for the graphical user interface (GUI).&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;gui-command-and-control-client--controller&#34;&gt;GUI Command and Control (Client + Controller)&lt;/h2&gt;&#xA;&lt;p&gt;I wanted a simple way to send system commands from a GUI and get the output back in real time. The result is a small Python command-and-control demo built on sockets with a &lt;code&gt;tkinter&lt;/code&gt; controller. It is intentionally minimal: one GUI, a client that listens for commands, and a few safe system info queries.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
