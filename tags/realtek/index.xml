@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Realtek on Talen&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:1313/tags/realtek/</link>
+    <link>https://talenserrao.github.io/tags/realtek/</link>
     <description>Recent content in Realtek on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/realtek/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talenserrao.github.io/tags/realtek/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Realtek Driver Updater</title>
-      <link>http://localhost:1313/blog/realtek-updater/</link>
+      <link>https://talenserrao.github.io/blog/realtek-updater/</link>
       <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/realtek-updater/</guid>
+      <guid>https://talenserrao.github.io/blog/realtek-updater/</guid>
       <description>&lt;h2 id=&#34;realtek-driver-updates-without-the-busywork&#34;&gt;Realtek Driver Updates Without the Busywork&lt;/h2&gt;&#xA;&lt;p&gt;I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing with &lt;code&gt;sudo make install&lt;/code&gt; every time I needed to rebuild the &lt;code&gt;rtw88&lt;/code&gt; driver. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;</description>
     </item>
   </channel>

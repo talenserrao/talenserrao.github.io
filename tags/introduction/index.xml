@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on Talen&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:1313/tags/introduction/</link>
+    <link>https://talenserrao.github.io/tags/introduction/</link>
     <description>Recent content in Introduction on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 18 Jul 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talenserrao.github.io/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to My Cybersecurity Blog</title>
-      <link>http://localhost:1313/blog/introduction/</link>
+      <link>https://talenserrao.github.io/blog/introduction/</link>
       <pubDate>Fri, 18 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/introduction/</guid>
+      <guid>https://talenserrao.github.io/blog/introduction/</guid>
       <description>&lt;h2 id=&#34;-hello-and-welcome&#34;&gt;👋 Hello and Welcome!&lt;/h2&gt;&#xA;&lt;p&gt;I’m &lt;strong&gt;Talen Neil Serrao&lt;/strong&gt;, a Cybersecurity and Ethical Hacking graduate from Coventry University 🇬🇧, awarded &lt;strong&gt;First Class Honours&lt;/strong&gt;.&lt;br&gt;&#xA;I’m currently studying for an &lt;strong&gt;MSc in Cyber Security Engineering at the University of Warwick&lt;/strong&gt;, and this website is a space where I share what I’m learning, building, and exploring in cybersecurity.&lt;/p&gt;</description>
     </item>
   </channel>

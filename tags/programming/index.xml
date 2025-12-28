@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Talen&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:1313/tags/programming/</link>
+    <link>https://talenserrao.github.io/tags/programming/</link>
     <description>Recent content in Programming on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talenserrao.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Realtek Driver Updater</title>
-      <link>http://localhost:1313/blog/realtek-updater/</link>
+      <link>https://talenserrao.github.io/blog/realtek-updater/</link>
       <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/realtek-updater/</guid>
+      <guid>https://talenserrao.github.io/blog/realtek-updater/</guid>
       <description>&lt;h2 id=&#34;realtek-driver-updates-without-the-busywork&#34;&gt;Realtek Driver Updates Without the Busywork&lt;/h2&gt;&#xA;&lt;p&gt;I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing with &lt;code&gt;sudo make install&lt;/code&gt; every time I needed to rebuild the &lt;code&gt;rtw88&lt;/code&gt; driver. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Return Oriented Programming</title>
-      <link>http://localhost:1313/blog/return-oriented-programming/</link>
+      <link>https://talenserrao.github.io/blog/return-oriented-programming/</link>
       <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/return-oriented-programming/</guid>
+      <guid>https://talenserrao.github.io/blog/return-oriented-programming/</guid>
       <description>&lt;h1 id=&#34;rop-exploit-with-arbitrary-write-to-bss-and-reverse-shell-via-system&#34;&gt;ROP Exploit with Arbitrary Write to &lt;code&gt;.bss&lt;/code&gt; and Reverse Shell via &lt;code&gt;system()&lt;/code&gt;&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; This repository contains a Return-Oriented Programming (ROP) exploit targeting a 64-bit Linux binary vulnerable to buffer overflow. The exploit performs an arbitrary write to the &lt;code&gt;.bss&lt;/code&gt; section to inject a reverse shell command, which is then executed using &lt;code&gt;system()&lt;/code&gt;. The goal is to gain a remote shell on the target system.&lt;/p&gt;</description>
     </item>
   </channel>

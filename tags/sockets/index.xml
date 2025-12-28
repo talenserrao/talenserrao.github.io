@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sockets on Talen&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:1313/tags/sockets/</link>
+    <link>https://talenserrao.github.io/tags/sockets/</link>
     <description>Recent content in Sockets on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 Jul 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/sockets/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talenserrao.github.io/tags/sockets/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GUI-Based Command &amp; Control Program</title>
-      <link>http://localhost:1313/blog/gui-command-control-program/</link>
+      <link>https://talenserrao.github.io/blog/gui-command-control-program/</link>
       <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/gui-command-control-program/</guid>
+      <guid>https://talenserrao.github.io/blog/gui-command-control-program/</guid>
       <description>&lt;h1 id=&#34;gui-based-command--control-program&#34;&gt;GUI-Based Command &amp;amp; Control Program&lt;/h1&gt;&#xA;&lt;p&gt;It a program that allows you to send commands to connected clients and display their responses. This program is built with Python 3 and uses the Tkinter library for the graphical user interface (GUI).&lt;/p&gt;</description>
     </item>
   </channel>

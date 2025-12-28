@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Talen&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://talenserrao.github.io/blog/</link>
     <description>Recent content in Blog on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talenserrao.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Steganography Image Encoder and Decoder</title>
-      <link>http://localhost:1313/blog/steganography-image-encoder-decoder/</link>
+      <link>https://talenserrao.github.io/blog/steganography-image-encoder-decoder/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/steganography-image-encoder-decoder/</guid>
+      <guid>https://talenserrao.github.io/blog/steganography-image-encoder-decoder/</guid>
       <description>&lt;h2 id=&#34;steganography-image-encoder-and-decoder&#34;&gt;Steganography image encoder and decoder&lt;/h2&gt;&#xA;&lt;p&gt;This is a simple program in python which is used to encode the text in the the image and also used to decode the text from an image with the help of opencv and numpy library by usiing the Least Common Bit meathod (LSB).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Network Security Case Study: DesX Zolutions Ltd.</title>
-      <link>http://localhost:1313/blog/network-security-assignment-writeup/</link>
+      <link>https://talenserrao.github.io/blog/network-security-assignment-writeup/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/network-security-assignment-writeup/</guid>
+      <guid>https://talenserrao.github.io/blog/network-security-assignment-writeup/</guid>
       <description>&lt;h2 id=&#34;case-brief&#34;&gt;Case Brief&lt;/h2&gt;&#xA;&lt;p&gt;I designed and implemented a secure network for a fictional company.&lt;/p&gt;</description>
     </item>
     <item>
       <title>GUI-Based Command &amp; Control Program</title>
-      <link>http://localhost:1313/blog/gui-command-control-program/</link>
+      <link>https://talenserrao.github.io/blog/gui-command-control-program/</link>
       <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/gui-command-control-program/</guid>
+      <guid>https://talenserrao.github.io/blog/gui-command-control-program/</guid>
       <description>&lt;h1 id=&#34;gui-based-command--control-program&#34;&gt;GUI-Based Command &amp;amp; Control Program&lt;/h1&gt;&#xA;&lt;p&gt;It a program that allows you to send commands to connected clients and display their responses. This program is built with Python 3 and uses the Tkinter library for the graphical user interface (GUI).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Realtek Driver Updater</title>
-      <link>http://localhost:1313/blog/realtek-updater/</link>
+      <link>https://talenserrao.github.io/blog/realtek-updater/</link>
       <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/realtek-updater/</guid>
+      <guid>https://talenserrao.github.io/blog/realtek-updater/</guid>
       <description>&lt;h2 id=&#34;realtek-driver-updates-without-the-busywork&#34;&gt;Realtek Driver Updates Without the Busywork&lt;/h2&gt;&#xA;&lt;p&gt;I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing with &lt;code&gt;sudo make install&lt;/code&gt; every time I needed to rebuild the &lt;code&gt;rtw88&lt;/code&gt; driver. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Return Oriented Programming</title>
-      <link>http://localhost:1313/blog/return-oriented-programming/</link>
+      <link>https://talenserrao.github.io/blog/return-oriented-programming/</link>
       <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/return-oriented-programming/</guid>
+      <guid>https://talenserrao.github.io/blog/return-oriented-programming/</guid>
       <description>&lt;h1 id=&#34;rop-exploit-with-arbitrary-write-to-bss-and-reverse-shell-via-system&#34;&gt;ROP Exploit with Arbitrary Write to &lt;code&gt;.bss&lt;/code&gt; and Reverse Shell via &lt;code&gt;system()&lt;/code&gt;&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; This repository contains a Return-Oriented Programming (ROP) exploit targeting a 64-bit Linux binary vulnerable to buffer overflow. The exploit performs an arbitrary write to the &lt;code&gt;.bss&lt;/code&gt; section to inject a reverse shell command, which is then executed using &lt;code&gt;system()&lt;/code&gt;. The goal is to gain a remote shell on the target system.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Welcome to My Cybersecurity Blog</title>
-      <link>http://localhost:1313/blog/introduction/</link>
+      <link>https://talenserrao.github.io/blog/introduction/</link>
       <pubDate>Fri, 18 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/introduction/</guid>
+      <guid>https://talenserrao.github.io/blog/introduction/</guid>
       <description>&lt;h2 id=&#34;-hello-and-welcome&#34;&gt;👋 Hello and Welcome!&lt;/h2&gt;&#xA;&lt;p&gt;I’m &lt;strong&gt;Talen Neil Serrao&lt;/strong&gt;, a Cybersecurity and Ethical Hacking graduate from Coventry University 🇬🇧, awarded &lt;strong&gt;First Class Honours&lt;/strong&gt;.&lt;br&gt;&#xA;I’m currently studying for an &lt;strong&gt;MSc in Cyber Security Engineering at the University of Warwick&lt;/strong&gt;, and this website is a space where I share what I’m learning, building, and exploring in cybersecurity.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hash-Cracker</title>
-      <link>http://localhost:1313/blog/hash-cracker/</link>
+      <link>https://talenserrao.github.io/blog/hash-cracker/</link>
       <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/hash-cracker/</guid>
+      <guid>https://talenserrao.github.io/blog/hash-cracker/</guid>
       <description>&lt;h1 id=&#34;hash-cracker&#34;&gt;Hash-Cracker&lt;/h1&gt;&#xA;&lt;p&gt;I built a small, simple program that can crack SHA-256 hashes using a wordlist. It supports two workflows: pass a CSV of hashes or enter a single hash interactively. I’ll keep making commits if I change anything.&lt;/p&gt;</description>
     </item>
   </channel>

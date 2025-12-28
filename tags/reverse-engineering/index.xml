@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reverse Engineering on Talen&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:1313/tags/reverse-engineering/</link>
+    <link>https://talenserrao.github.io/tags/reverse-engineering/</link>
     <description>Recent content in Reverse Engineering on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talenserrao.github.io/tags/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Return Oriented Programming</title>
-      <link>http://localhost:1313/blog/return-oriented-programming/</link>
+      <link>https://talenserrao.github.io/blog/return-oriented-programming/</link>
       <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
-      <guid>http://localhost:1313/blog/return-oriented-programming/</guid>
+      <guid>https://talenserrao.github.io/blog/return-oriented-programming/</guid>
       <description>&lt;h1 id=&#34;rop-exploit-with-arbitrary-write-to-bss-and-reverse-shell-via-system&#34;&gt;ROP Exploit with Arbitrary Write to &lt;code&gt;.bss&lt;/code&gt; and Reverse Shell via &lt;code&gt;system()&lt;/code&gt;&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; This repository contains a Return-Oriented Programming (ROP) exploit targeting a 64-bit Linux binary vulnerable to buffer overflow. The exploit performs an arbitrary write to the &lt;code&gt;.bss&lt;/code&gt; section to inject a reverse shell command, which is then executed using &lt;code&gt;system()&lt;/code&gt;. The goal is to gain a remote shell on the target system.&lt;/p&gt;</description>
     </item>
   </channel>

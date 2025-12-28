@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Opencv on Talen&#39;s Cybersecurity Blog</title>
-    <link>http://localhost:1313/tags/opencv/</link>
+    <link>https://talenserrao.github.io/tags/opencv/</link>
     <description>Recent content in Opencv on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://talenserrao.github.io/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Steganography Image Encoder and Decoder</title>
-      <link>http://localhost:1313/blog/steganography-image-encoder-decoder/</link>
+      <link>https://talenserrao.github.io/blog/steganography-image-encoder-decoder/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/steganography-image-encoder-decoder/</guid>
+      <guid>https://talenserrao.github.io/blog/steganography-image-encoder-decoder/</guid>
       <description>&lt;h2 id=&#34;steganography-image-encoder-and-decoder&#34;&gt;Steganography image encoder and decoder&lt;/h2&gt;&#xA;&lt;p&gt;This is a simple program in python which is used to encode the text in the the image and also used to decode the text from an image with the help of opencv and numpy library by usiing the Least Common Bit meathod (LSB).&lt;/p&gt;</description>
     </item>
   </channel>
