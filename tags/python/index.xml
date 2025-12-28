@@ -25,7 +25,7 @@
     <item>
       <title>Realtek Driver Updater</title>
       <link>https://talenserrao.github.io/blog/realtek-updater/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <pubDate>Tue, 22 Jul 2025 00:00:00 +0100</pubDate>
       <guid>https://talenserrao.github.io/blog/realtek-updater/</guid>
       <description>&lt;h2 id=&#34;realtek-driver-updates-without-the-busywork&#34;&gt;Realtek Driver Updates Without the Busywork&lt;/h2&gt;&#xA;&lt;p&gt;I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing with &lt;code&gt;sudo make install&lt;/code&gt; every time I needed to rebuild the &lt;code&gt;rtw88&lt;/code&gt; driver. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;</description>
     </item>
