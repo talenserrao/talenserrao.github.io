@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Talen&#39;s Cybersecurity Blog</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on Talen&#39;s Cybersecurity Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buffer Overflow Exploit: ROP Chain with Libc Leak</title>
+      <link>http://localhost:1313/blog/buffer-overflow-rop-libc-leak/</link>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/blog/buffer-overflow-rop-libc-leak/</guid>
+      <description>&lt;p&gt;This write-up walks through a 64-bit Linux buffer overflow exploit that leaks &lt;code&gt;puts()&lt;/code&gt; from the GOT, calculates the libc base, and then calls &lt;code&gt;system(&amp;quot;/bin/sh&amp;quot;)&lt;/code&gt; using a ROP chain.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,74 +1,214 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on </description>
+    <title>Tags on Talen&#39;s Cybersecurity Blog</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Automation</title>
-      <link>/tags/automation/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/automation/</guid>
+      <title>Lsb</title>
+      <link>http://localhost:1313/tags/lsb/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/lsb/</guid>
       <description></description>
     </item>
     <item>
-      <title>Cybersecurity</title>
-      <link>/tags/cybersecurity/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/cybersecurity/</guid>
+      <title>Numpy</title>
+      <link>http://localhost:1313/tags/numpy/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/numpy/</guid>
       <description></description>
     </item>
     <item>
-      <title>Driver</title>
-      <link>/tags/driver/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/driver/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Programming</title>
-      <link>/tags/programming/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/programming/</guid>
+      <title>Opencv</title>
+      <link>http://localhost:1313/tags/opencv/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/opencv/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>/tags/python/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/python/</guid>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Steganography</title>
+      <link>http://localhost:1313/tags/steganography/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/steganography/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aaa</title>
+      <link>http://localhost:1313/tags/aaa/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/aaa/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Acl</title>
+      <link>http://localhost:1313/tags/acl/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/acl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cisco</title>
+      <link>http://localhost:1313/tags/cisco/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cisco/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Firewall</title>
+      <link>http://localhost:1313/tags/firewall/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/firewall/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Design</title>
+      <link>http://localhost:1313/tags/network-design/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/network-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network-Security</title>
+      <link>http://localhost:1313/tags/network-security/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/network-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vlan</title>
+      <link>http://localhost:1313/tags/vlan/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/vlan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vlsm</title>
+      <link>http://localhost:1313/tags/vlsm/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/vlsm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gui</title>
+      <link>http://localhost:1313/tags/gui/</link>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/gui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:1313/tags/networking/</link>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/networking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sockets</title>
+      <link>http://localhost:1313/tags/sockets/</link>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/sockets/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tkinter</title>
+      <link>http://localhost:1313/tags/tkinter/</link>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/tkinter/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>http://localhost:1313/tags/automation/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:1313/tags/cybersecurity/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/cybersecurity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Driver</title>
+      <link>http://localhost:1313/tags/driver/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/driver/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/tags/programming/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Realtek</title>
-      <link>/tags/realtek/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/realtek/</guid>
+      <link>http://localhost:1313/tags/realtek/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/realtek/</guid>
       <description></description>
     </item>
     <item>
       <title>Reverse Engineering</title>
-      <link>/tags/reverse-engineering/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/reverse-engineering/</guid>
+      <link>http://localhost:1313/tags/reverse-engineering/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/reverse-engineering/</guid>
       <description></description>
     </item>
     <item>
       <title>Rop</title>
-      <link>/tags/rop/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/rop/</guid>
+      <link>http://localhost:1313/tags/rop/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/rop/</guid>
       <description></description>
     </item>
     <item>
       <title>Introduction</title>
-      <link>/tags/introduction/</link>
-      <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/tags/introduction/</guid>
+      <link>http://localhost:1313/tags/introduction/</link>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/introduction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cli</title>
+      <link>http://localhost:1313/tags/cli/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hashing</title>
+      <link>http://localhost:1313/tags/hashing/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/hashing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/tags/security/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sha256</title>
+      <link>http://localhost:1313/tags/sha256/</link>
+      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/tags/sha256/</guid>
       <description></description>
     </item>
   </channel>

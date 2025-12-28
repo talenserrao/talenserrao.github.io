@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on </title>
-    <link>/tags/programming/</link>
-    <description>Recent content in Programming on </description>
+    <title>Programming on Talen&#39;s Cybersecurity Blog</title>
+    <link>http://localhost:1313/tags/programming/</link>
+    <description>Recent content in Programming on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Automation Driver Update</title>
-      <link>/posts/realtek-updater/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/posts/realtek-updater/</guid>
-      <description>&lt;h2 id=&#34;building-a-simple-git--make-installer-gui-in-python&#34;&gt;Building a Simple Git + Make Installer GUI in Python&lt;/h2&gt;&#xA;&lt;p&gt;So I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing the thing with &lt;code&gt;sudo make install&lt;/code&gt; every single time I needed to update a driver or rebuild some source code. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;&#xA;&lt;p&gt;This is where my little project comes in: &lt;strong&gt;Git Make Installer&lt;/strong&gt; — a simple Python-based GUI tool that does just that.&lt;/p&gt;</description>
+      <title>Realtek Driver Updater</title>
+      <link>http://localhost:1313/blog/realtek-updater/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/blog/realtek-updater/</guid>
+      <description>&lt;h2 id=&#34;realtek-driver-updates-without-the-busywork&#34;&gt;Realtek Driver Updates Without the Busywork&lt;/h2&gt;&#xA;&lt;p&gt;I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing with &lt;code&gt;sudo make install&lt;/code&gt; every time I needed to rebuild the &lt;code&gt;rtw88&lt;/code&gt; driver. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Return Oriented Programming</title>
-      <link>/posts/return-oriented-programming/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/posts/return-oriented-programming/</guid>
-      <description>&lt;h2 id=&#34;return-oriented-programming-rop--a-beginners-journey&#34;&gt;Return-Oriented Programming (ROP) – A Beginner&amp;rsquo;s Journey&lt;/h2&gt;&#xA;&lt;p&gt;So recently, I finally took the dive into &lt;strong&gt;Return-Oriented Programming (ROP)&lt;/strong&gt; and wanted to document my experience. Not just for anyone else learning, but also for future me when I inevitably forget how I did this in a week.&lt;/p&gt;&#xA;&lt;p&gt;This post is based on a simple binary exploitation flow, and I followed along with the &lt;a href=&#34;https://www.youtube.com/watch?v=kvfnLvSbnhc&#34; target=&#34;_blank&#34;&gt;John Hammond Misfortune CTF ROP video&lt;/a&gt;. Highly recommend checking that out if you&amp;rsquo;re just getting into this.&lt;/p&gt;</description>
+      <link>http://localhost:1313/blog/return-oriented-programming/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/blog/return-oriented-programming/</guid>
+      <description>&lt;h1 id=&#34;rop-exploit-with-arbitrary-write-to-bss-and-reverse-shell-via-system&#34;&gt;ROP Exploit with Arbitrary Write to &lt;code&gt;.bss&lt;/code&gt; and Reverse Shell via &lt;code&gt;system()&lt;/code&gt;&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; This repository contains a Return-Oriented Programming (ROP) exploit targeting a 64-bit Linux binary vulnerable to buffer overflow. The exploit performs an arbitrary write to the &lt;code&gt;.bss&lt;/code&gt; section to inject a reverse shell command, which is then executed using &lt;code&gt;system()&lt;/code&gt;. The goal is to gain a remote shell on the target system.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

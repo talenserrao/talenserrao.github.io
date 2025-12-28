@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rop on </title>
-    <link>/tags/rop/</link>
-    <description>Recent content in Rop on </description>
+    <title>Rop on Talen&#39;s Cybersecurity Blog</title>
+    <link>http://localhost:1313/tags/rop/</link>
+    <description>Recent content in Rop on Talen&#39;s Cybersecurity Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/rop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Jul 2025 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Return Oriented Programming</title>
-      <link>/posts/return-oriented-programming/</link>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>/posts/return-oriented-programming/</guid>
-      <description>&lt;h2 id=&#34;return-oriented-programming-rop--a-beginners-journey&#34;&gt;Return-Oriented Programming (ROP) – A Beginner&amp;rsquo;s Journey&lt;/h2&gt;&#xA;&lt;p&gt;So recently, I finally took the dive into &lt;strong&gt;Return-Oriented Programming (ROP)&lt;/strong&gt; and wanted to document my experience. Not just for anyone else learning, but also for future me when I inevitably forget how I did this in a week.&lt;/p&gt;&#xA;&lt;p&gt;This post is based on a simple binary exploitation flow, and I followed along with the &lt;a href=&#34;https://www.youtube.com/watch?v=kvfnLvSbnhc&#34; target=&#34;_blank&#34;&gt;John Hammond Misfortune CTF ROP video&lt;/a&gt;. Highly recommend checking that out if you&amp;rsquo;re just getting into this.&lt;/p&gt;</description>
+      <link>http://localhost:1313/blog/return-oriented-programming/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0100</pubDate>
+      <guid>http://localhost:1313/blog/return-oriented-programming/</guid>
+      <description>&lt;h1 id=&#34;rop-exploit-with-arbitrary-write-to-bss-and-reverse-shell-via-system&#34;&gt;ROP Exploit with Arbitrary Write to &lt;code&gt;.bss&lt;/code&gt; and Reverse Shell via &lt;code&gt;system()&lt;/code&gt;&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; This repository contains a Return-Oriented Programming (ROP) exploit targeting a 64-bit Linux binary vulnerable to buffer overflow. The exploit performs an arbitrary write to the &lt;code&gt;.bss&lt;/code&gt; section to inject a reverse shell command, which is then executed using &lt;code&gt;system()&lt;/code&gt;. The goal is to gain a remote shell on the target system.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
