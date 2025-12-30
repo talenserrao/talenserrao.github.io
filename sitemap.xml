@@ -3,10 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://talenserrao.github.io/</loc>
-    <lastmod>2025-12-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/tags/ai/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/tags/api/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://talenserrao.github.io/blog/</loc>
-    <lastmod>2025-12-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/tags/ollama/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/tags/python/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/tags/streaming/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/blog/streaming-ollama-summaries/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/tags/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://talenserrao.github.io/tags/ui/</loc>
+    <lastmod>2025-12-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://talenserrao.github.io/tags/lsb/</loc>
     <lastmod>2025-12-28T00:00:00+00:00</lastmod>
@@ -17,16 +41,10 @@
     <loc>https://talenserrao.github.io/tags/opencv/</loc>
     <lastmod>2025-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://talenserrao.github.io/tags/python/</loc>
-    <lastmod>2025-12-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://talenserrao.github.io/tags/steganography/</loc>
     <lastmod>2025-12-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://talenserrao.github.io/blog/steganography-image-encoder-decoder/</loc>
-    <lastmod>2025-12-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://talenserrao.github.io/tags/</loc>
     <lastmod>2025-12-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://talenserrao.github.io/tags/aaa/</loc>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ollama on Talen&#39;s Cybersecurity Blog</title>
+    <link>https://talenserrao.github.io/tags/ollama/</link>
+    <description>Recent content in Ollama on Talen&#39;s Cybersecurity Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://talenserrao.github.io/tags/ollama/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streaming AI Summaries in the System Info Dashboard</title>
+      <link>https://talenserrao.github.io/blog/streaming-ollama-summaries/</link>
+      <pubDate>Tue, 30 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://talenserrao.github.io/blog/streaming-ollama-summaries/</guid>
+      <description>&lt;h2 id=&#34;turning-a-work-log-into-a-feature&#34;&gt;Turning a Work Log into a Feature&lt;/h2&gt;&#xA;&lt;p&gt;This program turns a simple work log into a real feature: live AI summaries inside my system info dashboard. I wanted analysis that feels immediate and reliable, not something that blocks the UI or fails silently when the model takes too long.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

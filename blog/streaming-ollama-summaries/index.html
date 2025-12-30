@@ -64,7 +64,7 @@
 
 
 
-  <base href="https://talenserrao.github.io/tags/python/" />
+  <base href="https://talenserrao.github.io/blog/streaming-ollama-summaries/" />
 
 
 
@@ -72,8 +72,10 @@
 
 
 
+  
 
-<title>Talen&#39;s Cybersecurity Blog</title>
+
+<title>Streaming AI Summaries in the System Info Dashboard</title>
 
 
 
@@ -173,13 +175,13 @@
 
 
 
-<meta property="og:title" content="Talen&#39;s Cybersecurity Blog" />
+<meta property="og:title" content="Streaming AI Summaries in the System Info Dashboard" />
 <meta property="og:description" content="Hugo &amp; Tailwindcss Starter" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://talenserrao.github.io/tags/python/" />
+<meta property="og:url" content="https://talenserrao.github.io/blog/streaming-ollama-summaries/" />
 
 
-<meta name="twitter:title" content="Talen&#39;s Cybersecurity Blog" />
+<meta name="twitter:title" content="Streaming AI Summaries in the System Info Dashboard" />
 <meta name="twitter:description" content="Hugo &amp; Tailwindcss Starter" />
 
 
@@ -676,160 +678,160 @@
 
     <main>
       
-  <section>
-  <div class="container text-center">
-    <div
-      class="from-body to-light dark:from-darkmode-body dark:to-darkmode-light rounded-2xl bg-gradient-to-b px-8 py-14">
-      <h1>Python</h1>
-      
-
-
-
-
-<ul class="mt-6 inline-flex space-x-1 capitalize">
-  <li>
-    <a class="text-primary dark:text-darkmode-primary" href="https://talenserrao.github.io/">
-      Home
-    </a>
-    <span class="inlin-block mr-1">/</span>
-  </li>
-  
-    
-  
-    
-      <li>
-        <a
-          class="text-primary dark:text-darkmode-primary"
-          href="/tags/">
-          Tags
-        </a>
-        <span class="inlin-block mr-1">/</span>
-      </li>
-    
-  
-  <li>
-    <span class="text-primary dark:text-darkmode-primary">
-      Python
-    </span>
-  </li>
-</ul>
-
-    </div>
-  </div>
-</section>
-
-
-
-  <section class="section">
+  <section class="section pt-7">
     <div class="container">
-      <div class="row gx-5">
-        
-        <div class="lg:col-8">
-          <div class="row">
+      <div class="row justify-center">
+        <article class="lg:col-10">
+          
+          
+          <h1 class="h2 mb-4">
+            Streaming AI Summaries in the System Info Dashboard
+          </h1>
+          <ul class="mb-4">
+            <li class="mr-4 inline-block">
+              <a
+                href="/authors/talen-neil-serrao/">
+                <i class="fa-regular fa-circle-user mr-2"></i
+                >Talen Neil Serrao
+              </a>
+            </li>
             
-              <div class="md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-  <h4 class="mb-3">
-    <a href="/blog/streaming-ollama-summaries/">
-      Streaming AI Summaries in the System Info Dashboard
-    </a>
-  </h4>
-  
-  
-  <p class="mb-6">Turning a Work Log into a Feature This program turns a simple work log into a real feature: live AI summaries inside my system info dashboard. I wanted analysis that feels immediate and reliable, not something that blocks the UI or fails silently when the model takes too long.
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/blog/streaming-ollama-summaries/">
-    Read More
-  </a>
-</div>
+            
+            <li class="mr-4 inline-block">
+              <i class="fa-regular fa-clock mr-2"></i>
+              December 30, 2025
+            </li>
+          </ul>
+          <div class="content mb-10">
+            
 
+ 
+  
+
+<details open class="table-of-content blog">
+  <summary>
+    
+      Table of Contents
+    
+  </summary>
+  <nav id="TableOfContents">
+  <ol>
+    <li><a href="#turning-a-work-log-into-a-feature">Turning a Work Log into a Feature</a></li>
+    <li><a href="#how-the-app-works-start-to-finish">How the App Works (Start to Finish)</a></li>
+    <li><a href="#what-the-api-actually-does">What the API Actually Does</a></li>
+    <li><a href="#what-changed-in-the-ui">What Changed in the UI</a></li>
+    <li><a href="#why-streaming-matters">Why Streaming Matters</a></li>
+    <li><a href="#docs-and-next-steps">Docs and Next Steps</a></li>
+    <li><a href="#final-thoughts">Final Thoughts</a></li>
+  </ol>
+</nav>
+</details>
+
+            <h2 id="turning-a-work-log-into-a-feature">Turning a Work Log into a Feature</h2>
+<p>This program turns a simple work log into a real feature: live AI summaries inside my system info dashboard. I wanted analysis that feels immediate and reliable, not something that blocks the UI or fails silently when the model takes too long.</p>
+<hr>
+<h2 id="how-the-app-works-start-to-finish">How the App Works (Start to Finish)</h2>
+<p>The desktop app is a Tkinter UI that lets you pick common system commands such as <code>df -h</code> or <code>ip a</code> and run them with one click. When you hit Run, the command executes via <code>subprocess</code>, and the output streams into a scrollable text area with clear run status.</p>
+<p>The new part is the &ldquo;Analyze with AI&rdquo; action. When you click it, the app sends whatever text is currently in the output pane to a local Flask API at <code>http://localhost:3000/summarize</code>. That API does not hit the internet; it stays on localhost and forwards the request to Ollama at <code>http://localhost:11434/api/generate</code>.</p>
+<hr>
+<h2 id="what-the-api-actually-does">What the API Actually Does</h2>
+<p>The <code>/summarize</code> endpoint is intentionally strict. It builds a prompt with a fixed schema (Role, Task, Context, Constraints) and a consistent output format, then injects only the raw command output as data. That consistency makes the summaries easier to scan and more predictable across runs.</p>
+<p>I also switched the Ollama request to streaming mode. Instead of waiting for a full response, the API relays text as it arrives. If Ollama fails upstream, the API returns the status and body in the 502 so debugging is straightforward. I removed request timeouts as well, since long summaries were getting cut off prematurely.</p>
+<hr>
+<h2 id="what-changed-in-the-ui">What Changed in the UI</h2>
+<p>On the UI side, the new &ldquo;Analyze with AI&rdquo; button triggers the call and displays the model output live in the same text area. While the stream is active, the button is disabled to prevent duplicate requests, then re-enabled when the stream ends or fails. The result feels a lot more interactive, and you can see the summary forming in real time instead of waiting for a blank pause.</p>
+<hr>
+<h2 id="why-streaming-matters">Why Streaming Matters</h2>
+<p>Streaming transforms the experience. The app stays responsive, the user sees progress immediately, and long responses no longer feel like a hang. It also makes it easier to stop or switch direction mid-analysis, because you&rsquo;re not locked into a single blocking request.</p>
+<hr>
+<h2 id="docs-and-next-steps">Docs and Next Steps</h2>
+<p>I added a <code>README.md</code> with setup and usage instructions so the flow is easy to reproduce. With the streaming pipeline working end to end, the next steps are about polish: more summary formats, saving past results, and small UI touches that make the analysis feel even more like a built-in assistant.</p>
+<hr>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>The end result is a dashboard that feels less like a static readout and more like a live system analyst that responds while you work.</p>
+
+          </div>
+          <div class="row items-start justify-between">
+            
+            
+              <div class="lg:col-6 mb-10 flex items-center lg:mb-0">
+                <h5 class="mr-3">Tags :</h5>
+                <ul>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/ai/">
+                        Ai
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/ollama/">
+                        Ollama
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/python/">
+                        Python
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/api/">
+                        API
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/ui/">
+                        Ui
+                      </a>
+                    </li>
+                  
+                    <li class="inline-block">
+                      <a
+                        class="bg-light hover:bg-primary dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark m-1 block rounded px-3 py-1 hover:text-white"
+                        href="/tags/streaming/">
+                        Streaming
+                      </a>
+                    </li>
+                  
+                </ul>
               </div>
             
-              <div class="md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-  <h4 class="mb-3">
-    <a href="/blog/steganography-image-encoder-decoder/">
-      Steganography Image Encoder and Decoder
-    </a>
-  </h4>
-  
-  
-  <p class="mb-6">Steganography image encoder and decoder This is a simple program in python which is used to encode the text in the the image and also used to decode the text from an image with the help of opencv and numpy library by usiing the Least Common Bit meathod (LSB).
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/blog/steganography-image-encoder-decoder/">
-    Read More
-  </a>
-</div>
-
-              </div>
-            
-              <div class="md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-  <h4 class="mb-3">
-    <a href="/blog/gui-command-control-program/">
-      GUI Command and Control
-    </a>
-  </h4>
-  
-  
-  <p class="mb-6">GUI Command and Control (Client + Controller) I wanted a simple way to send system commands from a GUI and get the output back in real time. The result is a small Python command-and-control demo built on sockets with a tkinter controller. It is intentionally minimal: one GUI, a client that listens for commands, and a few safe system info queries.
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/blog/gui-command-control-program/">
-    Read More
-  </a>
-</div>
-
-              </div>
-            
-              <div class="md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-  <h4 class="mb-3">
-    <a href="/blog/realtek-updater/">
-      Realtek Driver Updater
-    </a>
-  </h4>
-  
-  
-  <p class="mb-6">Realtek Driver Updates Without the Busywork I got tired of manually pulling from git, running make, and then installing with sudo make install every time I needed to rebuild the rtw88 driver. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/blog/realtek-updater/">
-    Read More
-  </a>
-</div>
-
-              </div>
-            
-              <div class="md:col-6 mb-14">
-                <div class="bg-body dark:bg-darkmode-body">
-  
-  
-  <h4 class="mb-3">
-    <a href="/blog/hash-cracker/">
-      Hash-Cracker
-    </a>
-  </h4>
-  
-  
-  <p class="mb-6">Hash-Cracker I built a small, simple program that can crack SHA-256 hashes using a wordlist. It supports two workflows: pass a CSV of hashes or enter a single hash interactively. I’ll keep making commits if I change anything.
-</p>
-  <a class="btn btn-outline-primary btn-sm" href="/blog/hash-cracker/">
-    Read More
-  </a>
-</div>
-
-              </div>
             
           </div>
-        </div>
+          
+          
+          
+            <div class="mt-20">
+              <script
+                src="https://utteranc.es/client.js"
+                repo="talenserrao/talenserrao.github.io"
+                issue-term="pathname"
+                label="comment"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async></script>
+            </div>
+          
+        </article>
       </div>
+
+      
+      
+      
+      
     </div>
   </section>
 
