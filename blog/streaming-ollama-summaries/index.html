@@ -75,7 +75,7 @@
   
 
 
-<title>Streaming AI Summaries in the System Info Dashboard</title>
+<title>AI Integration with System Info Dashboard</title>
 
 
 
@@ -175,13 +175,13 @@
 
 
 
-<meta property="og:title" content="Streaming AI Summaries in the System Info Dashboard" />
+<meta property="og:title" content="AI Integration with System Info Dashboard" />
 <meta property="og:description" content="Hugo &amp; Tailwindcss Starter" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://talenserrao.github.io/blog/streaming-ollama-summaries/" />
 
 
-<meta name="twitter:title" content="Streaming AI Summaries in the System Info Dashboard" />
+<meta name="twitter:title" content="AI Integration with System Info Dashboard" />
 <meta name="twitter:description" content="Hugo &amp; Tailwindcss Starter" />
 
 
@@ -685,7 +685,7 @@
           
           
           <h1 class="h2 mb-4">
-            Streaming AI Summaries in the System Info Dashboard
+            AI Integration with System Info Dashboard
           </h1>
           <ul class="mb-4">
             <li class="mr-4 inline-block">
@@ -729,7 +729,7 @@
 </details>
 
             <h2 id="turning-a-work-log-into-a-feature">Turning a Work Log into a Feature</h2>
-<p>This program turns a simple work log into a real feature: live AI summaries inside my system info dashboard. I wanted analysis that feels immediate and reliable, not something that blocks the UI or fails silently when the model takes too long.</p>
+<p>This program turns a simple system log into a real feature: live AI summaries inside my system info dashboard. I wanted analysis that feels immediate and reliable, not something that blocks the UI or fails silently when the model takes too long.</p>
 <hr>
 <h2 id="how-the-app-works-start-to-finish">How the App Works (Start to Finish)</h2>
 <p>The desktop app is a Tkinter UI that lets you pick common system commands such as <code>df -h</code> or <code>ip a</code> and run them with one click. When you hit Run, the command executes via <code>subprocess</code>, and the output streams into a scrollable text area with clear run status.</p>
@@ -746,7 +746,8 @@
 <p>Streaming transforms the experience. The app stays responsive, the user sees progress immediately, and long responses no longer feel like a hang. It also makes it easier to stop or switch direction mid-analysis, because you&rsquo;re not locked into a single blocking request.</p>
 <hr>
 <h2 id="docs-and-next-steps">Docs and Next Steps</h2>
-<p>I added a <code>README.md</code> with setup and usage instructions so the flow is easy to reproduce. With the streaming pipeline working end to end, the next steps are about polish: more summary formats, saving past results, and small UI touches that make the analysis feel even more like a built-in assistant.</p>
+<p>I wrote a clear <code>README.md</code> with setup and usage steps so anyone can run the project without guesswork. It covers how to start the Flask API, launch the desktop UI, and verify that the Ollama integration is working.</p>
+<p>From here, the natural extensions are about depth and usability: adding multiple summary styles (technical vs. executive), saving past analyses with timestamps, and polishing the UI with small affordances like progress states or quick re-run buttons.</p>
 <hr>
 <h2 id="repo-and-requirements">Repo and Requirements</h2>
 <p>GitHub: <a href="https://github.com/Tempest2488/system-info-with_ai_integration"
