@@ -722,6 +722,7 @@
     <li><a href="#what-changed-in-the-ui">What Changed in the UI</a></li>
     <li><a href="#why-streaming-matters">Why Streaming Matters</a></li>
     <li><a href="#docs-and-next-steps">Docs and Next Steps</a></li>
+    <li><a href="#repo-and-requirements">Repo and Requirements</a></li>
     <li><a href="#final-thoughts">Final Thoughts</a></li>
   </ol>
 </nav>
@@ -746,6 +747,25 @@
 <hr>
 <h2 id="docs-and-next-steps">Docs and Next Steps</h2>
 <p>I added a <code>README.md</code> with setup and usage instructions so the flow is easy to reproduce. With the streaming pipeline working end to end, the next steps are about polish: more summary formats, saving past results, and small UI touches that make the analysis feel even more like a built-in assistant.</p>
+<hr>
+<h2 id="repo-and-requirements">Repo and Requirements</h2>
+<p>GitHub: <a href="https://github.com/Tempest2488/system-info-with_ai_integration"
+
+
+
+
+ target="_blank"
+ 
+
+
+>https://github.com/Tempest2488/system-info-with_ai_integration</a></p>
+<p>Requirements:</p>
+<ul>
+<li>Python 3.8+</li>
+<li><code>pip install flask requests</code></li>
+<li>Ollama running locally at <code>http://localhost:11434</code></li>
+<li>Model available: <code>llama3</code> (and <code>llama3:latest</code> for <code>/ask</code>)</li>
+</ul>
 <hr>
 <h2 id="final-thoughts">Final Thoughts</h2>
 <p>The end result is a dashboard that feels less like a static readout and more like a live system analyst that responds while you work.</p>
