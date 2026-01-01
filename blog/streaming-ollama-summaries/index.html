@@ -718,11 +718,13 @@
   <ol>
     <li><a href="#turning-a-work-log-into-a-feature">Turning a Work Log into a Feature</a></li>
     <li><a href="#how-the-app-works-start-to-finish">How the App Works (Start to Finish)</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
     <li><a href="#what-the-api-actually-does">What the API Actually Does</a></li>
     <li><a href="#what-changed-in-the-ui">What Changed in the UI</a></li>
     <li><a href="#why-streaming-matters">Why Streaming Matters</a></li>
     <li><a href="#docs-and-next-steps">Docs and Next Steps</a></li>
     <li><a href="#repo-and-requirements">Repo and Requirements</a></li>
+    <li><a href="#how-to-run-it">How to Run It</a></li>
     <li><a href="#final-thoughts">Final Thoughts</a></li>
   </ol>
 </nav>
@@ -735,6 +737,11 @@
 <p>The desktop app is a Tkinter UI that lets you pick common system commands such as <code>df -h</code> or <code>ip a</code> and run them with one click. When you hit Run, the command executes via <code>subprocess</code>, and the output streams into a scrollable text area with clear run status.</p>
 <p>The new part is the &ldquo;Analyze with AI&rdquo; action. When you click it, the app sends whatever text is currently in the output pane to a local Flask API at <code>http://localhost:3000/summarize</code>. That API does not hit the internet; it stays on localhost and forwards the request to Ollama at <code>http://localhost:11434/api/generate</code>.</p>
 <hr>
+<h2 id="screenshots">Screenshots</h2>
+<p><img src="/images/disk_usage.png" alt="Disk usage output in the dashboard"></p>
+<p><img src="/images/disk_usage_ai.png" alt="AI summary streaming for disk usage"></p>
+<p><img src="/images/Drop%7C_down.png" alt="Command selector dropdown"></p>
+<hr>
 <h2 id="what-the-api-actually-does">What the API Actually Does</h2>
 <p>The <code>/summarize</code> endpoint is intentionally strict. It builds a prompt with a fixed schema (Role, Task, Context, Constraints) and a consistent output format, then injects only the raw command output as data. That consistency makes the summaries easier to scan and more predictable across runs.</p>
 <p>I also switched the Ollama request to streaming mode. Instead of waiting for a full response, the API relays text as it arrives. If Ollama fails upstream, the API returns the status and body in the 502 so debugging is straightforward. I removed request timeouts as well, since long summaries were getting cut off prematurely.</p>
@@ -746,7 +753,7 @@
 <p>Streaming transforms the experience. The app stays responsive, the user sees progress immediately, and long responses no longer feel like a hang. It also makes it easier to stop or switch direction mid-analysis, because you&rsquo;re not locked into a single blocking request.</p>
 <hr>
 <h2 id="docs-and-next-steps">Docs and Next Steps</h2>
-<p>I wrote a clear <code>README.md</code> with setup and usage steps so anyone can run the project without guesswork. It covers how to start the Flask API, launch the desktop UI, and verify that the Ollama integration is working.</p>
+<p>I wrote a clear <code>README.md</code> (which is given in the github link below) with setup and usage steps so anyone can run the project without guesswork. It covers how to start the Flask API, launch the desktop UI, and verify that the Ollama integration is working.</p>
 <p>From here, the natural extensions are about depth and usability: adding multiple summary styles (technical vs. executive), saving past analyses with timestamps, and polishing the UI with small affordances like progress states or quick re-run buttons.</p>
 <hr>
 <h2 id="repo-and-requirements">Repo and Requirements</h2>
@@ -768,6 +775,12 @@
 <li>Model available: <code>llama3</code> (and <code>llama3:latest</code> for <code>/ask</code>)</li>
 </ul>
 <hr>
+<h2 id="how-to-run-it">How to Run It</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m pip install flask requests
+</span></span><span style="display:flex;"><span>ollama serve
+</span></span><span style="display:flex;"><span>python3 ollama_api.py
+</span></span><span style="display:flex;"><span>python3 system_info.py
+</span></span></code></pre></div><hr>
 <h2 id="final-thoughts">Final Thoughts</h2>
 <p>The end result is a dashboard that feels less like a static readout and more like a live system analyst that responds while you work.</p>
 
