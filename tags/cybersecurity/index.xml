@@ -22,5 +22,12 @@
       <guid>https://talenserrao.github.io/blog/introduction/</guid>
       <description>&lt;h2 id=&#34;-hello-and-welcome&#34;&gt;👋 Hello and Welcome!&lt;/h2&gt;&#xA;&lt;p&gt;I’m &lt;strong&gt;Talen Neil Serrao&lt;/strong&gt;, a Cybersecurity and Ethical Hacking graduate from Coventry University 🇬🇧, awarded &lt;strong&gt;First Class Honours&lt;/strong&gt;.&lt;br&gt;&#xA;I’m currently studying for an &lt;strong&gt;MSc in Cyber Security Engineering at the University of Warwick&lt;/strong&gt;, and this website is a space where I share what I’m learning, building, and exploring in cybersecurity.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Building a Simple SHA-256 Hash Cracker in Python</title>
+      <link>https://talenserrao.github.io/blog/hash-cracker/</link>
+      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://talenserrao.github.io/blog/hash-cracker/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;As part of my journey in &lt;strong&gt;cybersecurity and ethical hacking&lt;/strong&gt;, I built a simple &lt;strong&gt;SHA-256 hash cracking tool&lt;/strong&gt; using Python.&#xA;The goal of this project was not to break real systems, but to &lt;strong&gt;understand how password hashing works&lt;/strong&gt;, how attackers misuse weak passwords, and why &lt;strong&gt;strong password policies and salting are critical&lt;/strong&gt; in modern security.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

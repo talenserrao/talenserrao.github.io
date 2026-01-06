@@ -212,31 +212,17 @@
       <description></description>
     </item>
     <item>
-      <title>Cli</title>
-      <link>https://talenserrao.github.io/tags/cli/</link>
-      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
-      <guid>https://talenserrao.github.io/tags/cli/</guid>
+      <title>Cryptography</title>
+      <link>https://talenserrao.github.io/tags/cryptography/</link>
+      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://talenserrao.github.io/tags/cryptography/</guid>
       <description></description>
     </item>
     <item>
-      <title>Hashing</title>
-      <link>https://talenserrao.github.io/tags/hashing/</link>
-      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
-      <guid>https://talenserrao.github.io/tags/hashing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Security</title>
-      <link>https://talenserrao.github.io/tags/security/</link>
-      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
-      <guid>https://talenserrao.github.io/tags/security/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sha256</title>
-      <link>https://talenserrao.github.io/tags/sha256/</link>
-      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
-      <guid>https://talenserrao.github.io/tags/sha256/</guid>
+      <title>Hash-Cracking</title>
+      <link>https://talenserrao.github.io/tags/hash-cracking/</link>
+      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://talenserrao.github.io/tags/hash-cracking/</guid>
       <description></description>
     </item>
   </channel>

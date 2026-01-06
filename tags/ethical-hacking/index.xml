@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ethical Hacking on Talen&#39;s Cybersecurity Blog</title>
+    <link>http://localhost:1313/tags/ethical-hacking/</link>
+    <description>Recent content in Ethical Hacking on Talen&#39;s Cybersecurity Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ethical-hacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Simple SHA-256 Hash Cracker in Python</title>
+      <link>http://localhost:1313/blog/hash-cracker/</link>
+      <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/hash-cracker/</guid>
+      <description>&lt;h2 id=&#34;-introduction&#34;&gt;🔐 Introduction&lt;/h2&gt;&#xA;&lt;p&gt;As part of my journey in &lt;strong&gt;cybersecurity and ethical hacking&lt;/strong&gt;, I built a simple &lt;strong&gt;SHA-256 hash cracking tool&lt;/strong&gt; using Python.&#xA;The goal of this project was not to break real systems, but to &lt;strong&gt;understand how password hashing works&lt;/strong&gt;, how attackers misuse weak passwords, and why &lt;strong&gt;strong password policies and salting are critical&lt;/strong&gt; in modern security.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

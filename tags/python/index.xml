@@ -37,11 +37,11 @@
       <description>&lt;h2 id=&#34;realtek-driver-updates-without-the-busywork&#34;&gt;Realtek Driver Updates Without the Busywork&lt;/h2&gt;&#xA;&lt;p&gt;I got tired of manually pulling from git, running &lt;code&gt;make&lt;/code&gt;, and then installing with &lt;code&gt;sudo make install&lt;/code&gt; every time I needed to rebuild the &lt;code&gt;rtw88&lt;/code&gt; driver. I wanted something cleaner — a one-stop GUI to handle the whole process with a few button clicks.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Hash-Cracker</title>
+      <title>Building a Simple SHA-256 Hash Cracker in Python</title>
       <link>https://talenserrao.github.io/blog/hash-cracker/</link>
-      <pubDate>Tue, 26 Oct 2021 00:00:00 +0100</pubDate>
+      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://talenserrao.github.io/blog/hash-cracker/</guid>
-      <description>&lt;h1 id=&#34;hash-cracker&#34;&gt;Hash-Cracker&lt;/h1&gt;&#xA;&lt;p&gt;I built a small, simple program that can crack SHA-256 hashes using a wordlist. It supports two workflows: pass a CSV of hashes or enter a single hash interactively. I’ll keep making commits if I change anything.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;As part of my journey in &lt;strong&gt;cybersecurity and ethical hacking&lt;/strong&gt;, I built a simple &lt;strong&gt;SHA-256 hash cracking tool&lt;/strong&gt; using Python.&#xA;The goal of this project was not to break real systems, but to &lt;strong&gt;understand how password hashing works&lt;/strong&gt;, how attackers misuse weak passwords, and why &lt;strong&gt;strong password policies and salting are critical&lt;/strong&gt; in modern security.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
